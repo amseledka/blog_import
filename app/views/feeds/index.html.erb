@@ -1,0 +1,12 @@
+<h2>Here are your blogs:</h2>
+
+<div>
+  <ul>
+    <%- @feeds.each do |feed| %>
+      <li><%= feed.url %></li>
+    <%- end %>
+  </ul>
+</div>
+
+<%= link_to "Add blog", new_feed_path %>
+
