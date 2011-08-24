@@ -22,13 +22,17 @@ class FeedsController < ApplicationController
     @feed = Feed.find(params[:id])
 
     if @feed.update_attributes(params[:feed])
-        redirect_to feeds_path, :notice => 'Feed was successfully updated.'
+        redirect_to feeds_path
       else
         render :action => "edit"
       end
   end
 
   def destroy
+    @feed = Feed.find(params[:id])
+    @feed.destroy
+    
+    redirect_to feeds_path
   end
 
 end
