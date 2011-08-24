@@ -3,7 +3,11 @@
 <div>
   <ul>
     <%- @feeds.each do |feed| %>
-      <li><%= feed.url %></li>
+      <li>
+        <%= feed.url %>
+        <%= link_to 'Edit', edit_feed_path(feed) %>
+        <%= link_to 'Remove', feed, :confirm => 'Are you sure?', :method => :delete %> 
+      </li>
     <%- end %>
   </ul>
 </div>
