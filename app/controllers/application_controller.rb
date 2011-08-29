@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
 
 protected
   def current_user
-    @user ||= load_current_user
+    load_current_user
   end
 
   def load_current_user
-    session[:auth_key] ||= params[:auth_key]
-    @auth_key ||= session[:auth_key]
-    @user = User.find_or_create_by_auth_key(@auth_key)
+    session[:user_id] = params[:user_id]
+    @user_id = session[:user_id]
+    @user = User.find_or_create_by_user_id(@user_id)
   end
 end

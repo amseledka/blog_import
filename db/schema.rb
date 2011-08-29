@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110824184538) do
+ActiveRecord::Schema.define(:version => 20110826215600) do
 
   create_table "feeds", :force => true do |t|
     t.string   "url"
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(:version => 20110824184538) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "auth_key"
+    t.string   "access_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "user_id"
   end
 
 end
