@@ -7,6 +7,8 @@
         <%= feed.url %>
         <%= link_to 'Edit', edit_feed_path(feed) %>
         <%= link_to 'Remove', feed, :confirm => 'Are you sure?', :method => :delete %> 
+        <%= link_to "Add post", new_post_path %>
+        <%= link_to "View all posts", posts_path %>
       </li>
     <%- end %>
   </ul>
@@ -14,8 +16,5 @@
 
 <%= link_to "Add blog", new_feed_path %>
 
-<script type="text/javascript" language="javascript" charset="utf-8">
-  VK.api('wall.post',{message: 'post_title', attachment: 'http:://google.com'});
-  
-</script>
+
 

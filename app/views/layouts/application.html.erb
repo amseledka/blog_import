@@ -11,7 +11,18 @@
 </head>
 <body>
   <script type="text/javascript" language="javascript" charset="utf-8">
+    VK.callMethod("showInstallBox");
+    VK.addCallback("onApplicationAdded", onApplicationAdded);
+    function onApplicationAdded {
+        alert(Теперь вы можете добавить блоги для импорта);
+    }
+    
     VK.callMethod('showSettingsBox', 8192);
+    VK.addCallback("onSettingsChanged", onSettingsChanged);
+ 
+    function onSettingsChanged(settings) {
+        alert('Настройки изменены: доступ к стене');
+    }
   </script>   
   <%= current_user %>
   <%= params.inspect %>

@@ -1,0 +1,17 @@
+<h2>All feed's posts</h2>
+
+<div>
+  <ul>
+    <%- @posts.each do |post| %>
+      <li>
+        <%= post.feed_id %>
+        <%= post.wall_message %>
+        <%= post.wall_attachment %>
+        <%= link_to "Add post", new_post_path %>
+       </li>
+    <%- end %>
+  </ul>
+<%= link_to "View all feeds", feeds_path %>
+
+</div>
+  

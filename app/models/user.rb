@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 =end
   
   def post_to_wall(wall_text, wall_attachment)
-    call_vk_method('post_to_wall', "post_text=#{wall_text}&attachment=#{wall_attachment}")
+    call_vk_method('post_to_wall', "owner_id=#{user_id}&message=#{wall_message}&attachment=#{wall_attachment}")
   end
 
 protected

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110826215600) do
+ActiveRecord::Schema.define(:version => 20110830123205) do
 
   create_table "feeds", :force => true do |t|
     t.string   "url"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(:version => 20110826215600) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "wall_message"
+    t.string   "wall_attachment"
   end
 
   create_table "users", :force => true do |t|

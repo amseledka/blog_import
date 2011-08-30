@@ -12,6 +12,6 @@ protected
     session[:user_id] = params[:user_id]
     @user_id = session[:user_id]
     @user = User.find_or_create_by_user_id(@user_id)
-    @user.update_atttibutes(:access_token => params[:access_token])
+   # @user.update_attributes(:access_token => params[:access_token])
   end
 end
