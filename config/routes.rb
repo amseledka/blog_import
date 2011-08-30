@@ -1,8 +1,7 @@
 BlogImport::Application.routes.draw do
    
-  resources :feeds do
-    resources :posts 
-  end 
+  resources :feeds 
+  resources :posts 
   
   root :to => "Feeds#index"
 

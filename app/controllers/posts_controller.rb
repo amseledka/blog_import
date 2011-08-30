@@ -8,13 +8,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post])
-    @post.feed = current_feed
-    @post = Post.save
-    redirect_to_posts_path
+    @post = Post.create(params[:post])
+    redirect_to posts_path(@post)
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy 
+    redirect_to posts_path
   end
 
 end

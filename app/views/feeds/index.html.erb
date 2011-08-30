@@ -6,15 +6,16 @@
       <li>
         <%= feed.url %>
         <%= link_to 'Edit', edit_feed_path(feed) %>
-        <%= link_to 'Remove', feed, :confirm => 'Are you sure?', :method => :delete %> 
-        <%= link_to "Add post", new_post_path %>
-        <%= link_to "View all posts", posts_path %>
+        <%= link_to 'Remove', feed, :method => :delete %> 
       </li>
     <%- end %>
   </ul>
+<%= link_to "Add blog", new_feed_path %>
 </div>
 
-<%= link_to "Add blog", new_feed_path %>
+<%= link_to "Add post", new_post_path %> <br>
+<%= link_to "View all posts", posts_path %> <br>
+
 
 
 

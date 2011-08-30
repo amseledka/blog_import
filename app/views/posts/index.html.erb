@@ -4,13 +4,13 @@
   <ul>
     <%- @posts.each do |post| %>
       <li>
-        <%= post.feed_id %>
         <%= post.wall_message %>
         <%= post.wall_attachment %>
-        <%= link_to "Add post", new_post_path %>
+        <%= link_to 'Remove', post, :method => :delete %>
        </li>
     <%- end %>
   </ul>
+<%= link_to "Add post", new_post_path %> or
 <%= link_to "View all feeds", feeds_path %>
 
 </div>
