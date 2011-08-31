@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :load_current_user
   helper_method :current_user  
 
 protected
@@ -9,9 +8,11 @@ protected
   end
 
   def load_current_user
-    session[:user_id] = params[:user_id]
+    session[:user_id] ||= params[:viewer_id]
     @user_id = session[:user_id]
-    @user = User.find_or_create_by_user_id(@user_id)
-   # @user.update_attributes(:access_token => params[:access_token])
+    @user = User.find_or_initialize_by_user_id(@user_id.to_s)
+    @user.access_token = params[:access_token] if @user.access_token.blank?
+    @user.save
+    @user
   end
 end

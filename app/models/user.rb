@@ -10,13 +10,13 @@ class User < ActiveRecord::Base
   end
 =end
   
-  def post_to_wall(wall_text, wall_attachment)
-    call_vk_method('post_to_wall', "owner_id=#{user_id}&message=#{wall_message}&attachment=#{wall_attachment}")
+  def post_to_wall(wall_message, wall_attachment)
+    call_vk_method('wall.post', "owner_id=#{user_id}&message=#{wall_message}&attachment=#{wall_attachment}")
   end
 
 protected
   def call_vk_method(method, params)
-    response = open("https://api.vkontakte.ru/method/#{method}?#{params}&access_token=#{access_token}")
-    ActiveSupport::JSON.parse(response)
+    response = eat("https://api.vkontakte.ru/method/#{method}?#{params}&access_token=#{access_token}")
+    ActiveSupport::JSON.decode(response)
   end
 end

@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'haml'
 
 gem 'omniauth'
+gem 'eat'
 
 # Use unicorn as the web server
 # gem 'unicorn'

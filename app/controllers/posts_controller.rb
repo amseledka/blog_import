@@ -9,7 +9,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(params[:post])
-    redirect_to posts_path(@post)
+    @json_response = current_user.post_to_wall(@post.wall_message, @post.wall_attachment)
+    render :text => @json_response.to_json
   end
 
   def destroy

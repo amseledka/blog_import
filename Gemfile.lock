@@ -31,6 +31,7 @@ GEM
     addressable (2.2.4)
     arel (2.0.10)
     builder (2.1.2)
+    eat (0.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     faraday (0.6.1)
@@ -130,6 +131,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  eat
   haml
   omniauth
   rails (= 3.0.9)
