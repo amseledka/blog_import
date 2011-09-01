@@ -4,5 +4,6 @@ BlogImport::Application.routes.draw do
   resources :posts 
   
   root :to => "Feeds#index"
+  match "/auth/:vkontakte/callback" => "Feeds#create"  
 
 end
