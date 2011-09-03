@@ -4,6 +4,6 @@ BlogImport::Application.routes.draw do
   resources :posts 
   
   root :to => "Feeds#index"
-  match "/auth/:vkontakte/callback" => "Feeds#create"  
-
+  match "/auth/:vkontakte/callback" => "sessions#create"  
+  match "/signout" => "sessions#destroy", :as => :signout
 end
