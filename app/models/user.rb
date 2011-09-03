@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
   has_many :feeds
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.user_id = auth["user_id"]
+    end
+  end
   def to_s
     "id: #{user_id} access_token: #{access_token}"
   end
@@ -14,11 +19,7 @@ class User < ActiveRecord::Base
     call_vk_method('wall.post', "owner_id=#{user_id}&message=#{wall_message}&attachment=#{wall_attachment}")
   end
 
-def self.create_with_omniauth(auth)
-  create! do |user|
-    user.user_id = auth["user_id"]
-  end
-end
+
 
 
 

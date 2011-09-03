@@ -1,6 +1,8 @@
 class FeedsController < ApplicationController
   def index
-    @feeds = current_user.feeds
+    if current_user
+      @feeds = current_user.feeds
+    end
   end
 
   def new
